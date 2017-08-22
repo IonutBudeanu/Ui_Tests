@@ -6,6 +6,18 @@
  */
 const GmailObj=require('../PageObjects/Gmail');
 
+beforeAll(() => {
+    browser.manage().window().maximize();
+});
+
+beforeEach(() => {
+    browser.ignoreSynchronization = true;
+});
+
+afterEach(() => {
+    browser.ignoreSynchronization = false;
+});
+
 describe('GoogleMail page', function() {
     let obj=new GmailObj();
     it('Access GoogleMail page', function() {

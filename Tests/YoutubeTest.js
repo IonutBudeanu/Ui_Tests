@@ -1,6 +1,18 @@
 
 const YoutubeObj=require('../PageObjects/Youtube');
 
+beforeAll(() => {
+    browser.manage().window().maximize();
+});
+
+beforeEach(() => {
+    browser.ignoreSynchronization = true;
+});
+
+afterEach(() => {
+    browser.ignoreSynchronization = false;
+});
+
 describe('Youtube page', function() {
     let YouPage=new YoutubeObj();
     it('Access Youtube page', function() {

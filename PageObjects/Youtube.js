@@ -21,9 +21,7 @@ function Youtube() {
 
 
     this.accesYoutube = function () {
-        browser.ignoreSynchronization = true;
         browser.get(url);
-        browser.driver.manage().window().maximize();
         this.waitUntilElementAppears();
         expect(browser.getCurrentUrl()).toEqual(url);
     };

@@ -3,6 +3,19 @@
  */
 const GoogleObj=require('../PageObjects/GoogleSearch');
 
+beforeAll(() => {
+    browser.manage().window().maximize();
+});
+
+beforeEach(() => {
+    browser.ignoreSynchronization = true;
+});
+
+afterEach(() => {
+    browser.ignoreSynchronization = false;
+});
+
+
 describe('Google page', function() {
     let obj=new GoogleObj();
     it('Access Google page', function() {
@@ -10,7 +23,7 @@ describe('Google page', function() {
         obj.accessGoogle();
     });
     it('Search Google', function() {
-        obj.searchGoogle('firefox');
+        obj.searchGoogle('Barack Obama');
     });
    it('Access pictures', function() {
         //Access youtube page
