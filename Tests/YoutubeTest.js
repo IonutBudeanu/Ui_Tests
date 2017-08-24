@@ -22,7 +22,13 @@ describe('Youtube page', function() {
         YouPage.accessTrending();
     });
     it('Search Mozilla videos', function() {
-        YouPage.searchYoutube();
+        YouPage.searchYoutube('sarah jeffery recorder');
+    });
+    it('Play video', function() {
+        YouPage.playVideo();
+    });
+    it('Play 2nd video', function() {
+        YouPage.playSecondVideo();
     });
 });
 

@@ -19,14 +19,12 @@ afterEach(() => {
 describe('Google page', function() {
     let obj=new GoogleObj();
     it('Access Google page', function() {
-        //Access google page
         obj.accessGoogle();
     });
     it('Search Google', function() {
         obj.searchGoogle('Barack Obama');
     });
    it('Access pictures', function() {
-        //Access youtube page
         obj.accessPhotos();
     });
 });

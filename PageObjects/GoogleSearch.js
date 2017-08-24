@@ -2,7 +2,8 @@
 const url='https://www.google.com/';
 const searchBarElement= element(by.id('lst-ib'));
 const searchButton = element.all(by.className('lsb'));
-const imagesElement=element(by.className('hdtb-mitem hdtb-imb'));
+const imagesElement=element.all(by.className('q qs'));
+const background = element(by.id('viewport'));
 
 
 
@@ -20,17 +21,24 @@ function GoogleSearch() {
 
 
     this.accessGoogle = function () {
+        googleAccess = Date.now();
         browser.get(url);
         this.waitUntilElementAppears();
         browser.driver.sleep(3000);
+        console.log('Google is accessed at: ' + googleAccess)
         //expect(browser.getCurrentUrl()).toEqual(url);
     };
 
     this.searchGoogle=function(key){
         searchBarElement.sendKeys(key);
         browser.driver.sleep(3000);
+        background.click()
+        browser.driver.sleep(1000);
+        searchStart = Date.now();
         searchButton.click();
-        browser.driver.sleep(3000);
+        browser.driver.sleep(1000);
+        console.log('Search is at: ' + searchStart)
+
 
         /*searchButton.each(searchButton => {
          if(searchButton.value == 'Căutare Google'){
@@ -39,8 +47,11 @@ function GoogleSearch() {
          });*/
     }
     this.accessPhotos=function(){
-        imagesElement.click();
+        clickImages = Date.now();
+        imagesElement.get(0).click();
         browser.driver.sleep(3000);
+        console.log('Images section is accessed at: ' + clickImages)
+
     }
 
 

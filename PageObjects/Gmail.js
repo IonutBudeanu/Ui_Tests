@@ -26,10 +26,15 @@ function Gmail() {
 
 
     this.accessGoogleMail = function () {
+        gmailAccess = Date.now();
         browser.get(url);
         //expect(browser.getCurrentUrl()).toEqual(url)
         browser.driver.sleep(3000);
+        gmailLogin = Date.now();
         GoogleLogin.login();
+        console.log('Gmail is accessed at : ' + gmailAccess);
+        console.log('Login is at : ' + gmailLogin);
+
     }
 
     this.accessEmail = function (key) {
